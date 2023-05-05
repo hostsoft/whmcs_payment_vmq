@@ -1,0 +1,25 @@
+{
+  "schema": "1.4",
+  "type": "whmcs-gateways",
+  "name": "wanyivmq",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "V免签",
+    "tagline": "专业个人开发者的免签约收款方案,当前支持支付宝和微信."
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.authorize.net\/",
+    "docs_url": "https:\/\/docs.whmcs.com\/Authorize.net"
+  },
+  "authors": [
+    {
+      "name": "Wanyi Inc",
+      "homepage": "https:\/\/www.idcsoft.net\/"
+    }
+  ]
+}
+
