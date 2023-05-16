@@ -57,6 +57,8 @@ function wanyivmq_config()
 
 function wanyivmq_link($params)
 {
+	$returnUrl = WHMCS\Config\Setting::getValue("SystemURL").'/clientarea.php';
+	$notifyUrl = WHMCS\Config\Setting::getValue("SystemURL").'/modules/gateways/callback/wanyivmq.php';
     $appurl = $params['AppURL'];
     $appkey = $params['AppKEY'];
     $invoiceid = $params['invoiceid'];
@@ -69,8 +71,8 @@ function wanyivmq_link($params)
     $array_agv2 = "payId={$payID2}&price={$amount}&param={$invoiceid}";
     $sign1 = md5($payID1.$invoiceid."1".$amount.$appkey);
     $sign2 = md5($payID2.$invoiceid."2".$amount.$appkey);
-    $weixin_url = "{$array_agv1}&type=1&sign={$sign1}&isHtml=1";
-    $alipay_url = "{$array_agv2}&type=2&sign={$sign2}&isHtml=1";
+    $weixin_url = "{$array_agv1}&type=1&sign={$sign1}&isHtml=1&notifyUrl={$notifyUrl}&returnUrl={$returnUrl}";
+    $alipay_url = "{$array_agv2}&type=2&sign={$sign2}&isHtml=1&notifyUrl={$notifyUrl}&returnUrl={$returnUrl}";
     $htmlOutput  = "<a href=\"{$root_url}{$alipay_url}\" target=\"_blank\" class=\"btn btn-primary btn-sm mr-3\"> 支付宝扫码 </a>";
     $htmlOutput .= "";
     $htmlOutput .= "<a href=\"{$root_url}{$weixin_url}\" target=\"_blank\" class=\"btn btn-success btn-sm\"> 微信扫码 </a>";
